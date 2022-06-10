@@ -16,13 +16,13 @@ const Current = (props) => {
             </View>
             <View style={styles.row}>
                 <View style={styles.column}>
-                    <Text>13%</Text>
+                    <Text>{props.currentData.humidity}%</Text>
                 </View>
                 <View style={styles.column}>
-                    <Text>0.533 mBar</Text>
+                    <Text>{props.currentData.pressure_mb} mBar</Text>
                 </View>
                 <View style={styles.column}>
-                    <Text>9 km/h</Text>
+                    <Text>{props.currentData.wind_kph} km/h</Text>
                 </View>
 
             </View>
@@ -48,7 +48,8 @@ const styles = StyleSheet.create({
         width: 100
     },
     row: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginBottom: 30
     },
     column: {
         flex: 1
