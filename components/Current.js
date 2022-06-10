@@ -1,16 +1,17 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Image } from 'react-native'
 
 const Current = (props) => {
     return (
         <View>
             <View style={styles.row}>
-                <View style={styles.column}>
+                <View style={styles.columnBig}>
                     <Text style={styles.location}>{props.locationData.name}</Text>
-                    <Text style={styles.temperature}>18 <Text style={styles.small}>&deg;C</Text></Text>
-                    <Text style={styles.status}>Cloudy</Text>
+                    <Text>{props.locationData.region} / {props.locationData.country}</Text>
+                    <Text style={styles.temperature}>{props.currentData.temp_c} <Text style={styles.small}>&deg;C</Text></Text>
+                    <Text style={styles.status}>{props.currentData.condition.text}</Text>
                 </View>
                 <View style={styles.column}>
-                    {/* Image with condition here */}
+                    <Image source={{ uri: 'http:' + props.currentData.condition.icon }} style={styles.statusImage} />
                 </View>
             </View>
             <View style={styles.row}>
@@ -42,11 +43,18 @@ const styles = StyleSheet.create({
     status: {
 
     },
+    statusImage: {
+        height: 100,
+        width: 100
+    },
     row: {
         flexDirection: 'row'
     },
     column: {
         flex: 1
+    },
+    columnBig: {
+        flex: 2
     }
 })
 
