@@ -5,8 +5,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
-        <Text style={styles.wrapperTitle}>Hello, Weather!</Text>
-        <Homepage/>
+        <Homepage />
       </View>
     </View>
   );
@@ -20,9 +19,5 @@ const styles = StyleSheet.create({
   wrapper: {
     paddingTop: 80,
     paddingHorizontal: 20
-  },
-  wrapperTitle: {
-    fontSize: 24,
-    fontWeight: 'bold'
   }
 });
