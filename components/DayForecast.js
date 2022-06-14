@@ -26,8 +26,7 @@ const DayForecast = (props) => {
 const styles = StyleSheet.create({
     title: {
         fontSize: 18,
-        fontWeight: 'bold',
-        marginBottom: 10
+        fontWeight: 'bold'
     }
 })
 

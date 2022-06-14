@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     },
     temperature: {
         fontSize: 14,
-        fontWeight: 'bold'
+        fontWeight: '600'
     }
 })
 
