@@ -3,6 +3,8 @@ import * as Location from 'expo-location';
 import React, { useEffect, useState } from "react";
 import { View, Text } from "react-native";
 import Current from "../components/Current";
+import HourForecast from "../components/HourForecast";
+import DayForecast from "../components/DayForecast";
 
 const requestBase = 'https://api.weatherapi.com/v1/forecast.json?key=0837a5665aaf4ae9be293542221006&days=3&aqi=no&alerts=no&q=';
 
@@ -38,7 +40,24 @@ const Homepage = () => {
 
     return (
         <View>
-            {data ? <Current currentData={data.current} locationData={data.location} /> : <View><Text>Loading...</Text></View>}
+            {data
+                ? <View>
+                    <Current currentData={data.current} locationData={data.location} />
+                    <HourForecast
+                        data={data.forecast.forecastday[0].hour}
+                        currentDate={data.location.localtime_epoch}
+                    />
+                    <DayForecast
+                        data={data.forecast.forecastday.map(item => {
+                            return {
+                                date_epoch: item.date_epoch,
+                                ...item.day
+                            } 
+                        })}
+                    />
+                </View>
+                : <View><Text>Loading...</Text></View>}
+
         </View>
     )
 }

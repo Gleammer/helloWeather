@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "helloWeather",
-    "slug": "helloWeather",
+    "slug": "hello-weather",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
