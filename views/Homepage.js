@@ -39,8 +39,16 @@ const Homepage = () => {
 
     return (
         <View>
-            {data ? <Current currentData={data.current} locationData={data.location} /> : <View><Text>Loading...</Text></View>}
-            <HourList/>
+            {data
+                ? <View>
+                    <Current currentData={data.current} locationData={data.location} />
+                    <HourList
+                        data={data.forecast.forecastday[0].hour}
+                        currentDate={data.location.localtime_epoch}
+                    />
+                </View>
+                : <View><Text>Loading...</Text></View>}
+
         </View>
     )
 }
