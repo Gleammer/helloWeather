@@ -942,15 +942,14 @@ const HourList = () => {
         }
     ]);
 
-    const renderItem = (item) => {
+    const renderItem = (iteration) => {
         return (
-            <View><Text>Lorem ipsum</Text></View>
+            <Hour data={iteration.item}/>
         )
     }
 
     return (
         <View>
-            <Text>Lorem ipsum</Text>
             <FlatList
                 data={data}
                 renderItem={renderItem}

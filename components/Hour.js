@@ -1,13 +1,30 @@
-import { View, Text } from 'react-native'
+import { View, Text, Button, Image, StyleSheet } from 'react-native'
 
-const Hour = () => {
-    
+const Hour = (props) => {
+    const time = new Date(props.data.time_epoch * 1000)
 
     return (
         <View>
-            <Text>Lorem ipsum</Text>
+            <Text style={styles.center}>{time.toLocaleTimeString('en-US', { hour: 'numeric', hour12: true })}</Text>
+            <Image source={{ uri: 'http:' + props.data.condition.icon }} style={styles.statusImage}/>
+            <Text style={[styles.center, styles.temperature]}>{props.data.temp_c}&deg;</Text>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    statusImage: {
+        height: 70,
+        width: 70
+    },
+    center: {
+        textAlign: 'center',
+        width: 70
+    },
+    temperature: {
+        fontSize: 16,
+        fontWeight: 'bold'
+    }
+})
 
 export default Hour
